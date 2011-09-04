@@ -17,10 +17,15 @@ Jeweler::Tasks.new do |gem|
   gem.name = "static_fm"
   gem.homepage = "http://github.com/rossta/static_fm"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "A static file manager: install and upgrade vendor assets (Javascript|CSS)"
+  gem.description = <<-DESCRIPTION
+It's time consuming to look up the URLs to your favorite javascript libraries and css
+frameworks every time you start a new project or need to upgrade to a new version. Static
+FM provides recipes and tasks to speed up the process so you can start using the latest now.
+DESCRIPTION
   gem.email = "rosskaff@gmail.com"
   gem.authors = ["Ross Kaffenberger"]
+  gem.executables << 'static'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -38,12 +43,14 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+# require 'rake/task'
+# Rake::RDocTask.new do |rdoc|
+#   version = File.exist?('VERSION') ? File.read('VERSION') : ""
+#
+#   rdoc.rdoc_dir = 'rdoc'
+#   rdoc.title = "static_fm #{version}"
+#   rdoc.rdoc_files.include('README*')
+#   rdoc.rdoc_files.include('lib/**/*.rb')
+# end
 
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "static_fm #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+require 'static_fm/tasks'
