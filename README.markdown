@@ -2,6 +2,10 @@
 
 A static file manager: install and upgrade vendor assets (Javascript|CSS).
 
+##
+
+This project is still under heavy development
+
 ## Contributing to static_fm
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet

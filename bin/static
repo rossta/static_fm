@@ -1,49 +1,9 @@
-#! /usr/bin/ruby
+#!/usr/bin/env ruby
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
-require 'static_fm'
+require 'rubygems'
 
-require 'optparse'
+require 'static_fm/command_line'
 
-parser = OptionParser.new do |opts|
-  opts.banner = "Usage: static [options] COMMAND"
-
-  opts.separator ""
-  opts.separator "Options:"
-
-  # opts.on("-r", "--redis [HOST:PORT]", "Redis connection string") do |host|
-  #   Resque.redis = host
-  # end
-  #
-  # opts.on("-N", "--namespace [NAMESPACE]", "Redis namespace") do |namespace|
-  #   Resque.redis.namespace = namespace
-  # end
-  #
-  # opts.on("-h", "--help", "Show this message") do
-  #   puts opts
-  #   exit
-  # end
-
-  opts.separator ""
-  opts.separator "Commands:"
-  opts.separator "  install ASSET DEST  Downloads asset to destination"
-  opts.separator "  list                Lists available download recipes"
-end
-
-def install(asset_name, destination)
-  StaticFM::Installer.download(asset_name, destination)
-end
-
-def list
-  puts StaticFM::Asset.recipe_names.join("\n")
-end
-
-case ARGV[0]
-when 'install'
-  install ARGV[1], ARGV[2]
-when 'list'
-  list
-else
-  puts parser.help
-end
+puts StaticFM::CommandLine.new(ARGV).execute

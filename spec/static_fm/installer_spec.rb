@@ -10,17 +10,20 @@ describe StaticFM::Installer do
 
     before(:each) do
       @installer = StaticFM::Installer.new(@asset, "./spec/backbone.js")
-      @http = mock(Net::HTTP, :get => mock("Response", :body => "source code"))
+      @response = mock('Response', :body => "source code")
+      @request = mock(Typhoeus::Request, :on_complete => nil)
+      @hydra = mock(Typhoeus::Hydra, :queue => nil, :run => nil)
       @file = mock(File, :write => nil)
-      Net::HTTP.stub!(:start).and_yield(@http)
+      Typhoeus::Request.stub!(:new).and_return(@request)
+      Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+      @request.stub!(:on_complete).and_yield(@response)
       File.stub!(:open).and_yield(@file)
     end
 
     it "should install given asset to given destination" do
-      Net::HTTP.should_receive(:start)
-        .with("www.example.com")
-        .and_yield(@http)
-      @http.should_receive(:get).with('/backbone-src.js')
+      Typhoeus::Request.should_receive(:new)
+        .with("http://www.example.com/backbone-src.js", { :follow_location => true, :max_redirects => 1 })
+        .and_return(@request)
       @installer.download
     end
 
@@ -35,13 +38,3 @@ describe StaticFM::Installer do
 
   end
 end
-
-
-# require 'net/http'
-#
-# Net::HTTP.start("static.flickr.com") { |http|
-#   resp = http.get("/92/218926700_ecedc5fef7_o.jpg")
-#   open("fun.jpg", "wb") { |file|
-#     file.write(resp.body)
-#    }
-# }

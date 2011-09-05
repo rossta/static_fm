@@ -23,6 +23,14 @@ module StaticFM
         @config ||= default_config
       end
 
+      def reset
+        @config = default_config
+      end
+
+      def config=(attributes)
+        @config = attributes
+      end
+
       def default_config
         @default_config ||= YAML::load_file(File.join(dir, "config", "static.yml"))
       end
@@ -52,6 +60,16 @@ module StaticFM
     def path
       parsed_uri.path
     end
+
+    def basename
+      File.basename(@url)
+    end
+
+    def compressed_path
+      @compressed && path.gsub(basename, compressed)
+    end
+
+    protected
 
     def parsed_uri
       @parsed_uri ||= URI.parse(@url)
