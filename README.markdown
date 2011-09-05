@@ -1,8 +1,8 @@
-= static_fm
+# static_fm
 
 A static file manager: install and upgrade vendor assets (Javascript|CSS).
 
-== Contributing to static_fm
+## Contributing to static_fm
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
