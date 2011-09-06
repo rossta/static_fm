@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{static_fm}
-  s.version = "0.1.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ross Kaffenberger"]
@@ -40,6 +40,7 @@ FM provides recipes and tasks to speed up the process so you can start using the
     "lib/static_fm/updater.rb",
     "spec/spec_helper.rb",
     "spec/static_fm/asset_spec.rb",
+    "spec/static_fm/command_line_spec.rb",
     "spec/static_fm/installer_spec.rb",
     "spec/static_fm/integration_spec.rb",
     "spec/static_fm_spec.rb",
