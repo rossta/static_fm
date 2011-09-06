@@ -42,7 +42,7 @@ module StaticFM
     end
 
 
-    attr_accessor :name, :url, :version, :compressed, :description, :tags
+    attr_accessor :name, :url, :version, :compressed, :description, :file_name
 
     def initialize(name, attributes = {})
       @name = name
@@ -63,6 +63,10 @@ module StaticFM
 
     def basename
       File.basename(@url)
+    end
+
+    def file_name
+      @file_name.nil? ? basename : @file_name
     end
 
     def compressed_path
