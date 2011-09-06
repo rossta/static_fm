@@ -1,19 +1,19 @@
-underscore: 
+"underscore":
   url: "https://github.com/documentcloud/underscore/raw/{version}/underscore.js"
   description: "javascript's utility belt"
   compressed: "underscore-min.js"
   version: "1.1.7"
 
-raphael:
+"raphael":
   url: "https://github.com/DmitryBaranovskiy/raphael/raw/v{version}/raphael.js"
   description: "raphael vector library"
-  "compressed": "raphael-min.js"
+  compressed: "raphael-min.js"
   version: "1.4.7"
 
 "g.raphael":
   url: "https://github.com/DmitryBaranovskiy/g.raphael/raw/v{version}/g.raphael.js"
   description: "charting for raphael"
-  "compressed": "g.raphael-min.js"
+  compressed: "g.raphael-min.js"
   version: "0.4.1"
   dependencies:
     "raphael": "1.4.7"
@@ -21,7 +21,7 @@ raphael:
 "g.bar":
   url: "https://github.com/DmitryBaranovskiy/g.raphael/raw/v{version}/g.bar.js"
   description: "bar charting for raphael"
-  "compressed": "g.bar-min.js"
+  compressed: "g.bar-min.js"
   version: "0.4.1"
   dependencies:
     "g.raphael": "0.4.1"
@@ -29,7 +29,7 @@ raphael:
 "g.dot":
   url: "https://github.com/DmitryBaranovskiy/g.raphael/raw/v{version}/g.dot.js"
   description: "dot charting for raphael"
-  "compressed": "g.dot-min.js"
+  compressed: "g.dot-min.js"
   version: "0.4.1"
   dependencies:
     "g.raphael": "0.4.1"
@@ -37,7 +37,7 @@ raphael:
 "g.line":
   url: "https://github.com/DmitryBaranovskiy/g.raphael/raw/v{version}/g.line.js"
   description: "line charting for raphael"
-  "compressed": "g.line-min.js"
+  compressed: "g.line-min.js"
   version: "0.4.1"
   dependencies:
     "g.raphael": "0.4.1"
@@ -45,7 +45,7 @@ raphael:
 "g.pie":
   url: "https://github.com/DmitryBaranovskiy/g.raphael/raw/v{version}/g.pie.js"
   description: "pie charting for raphael"
-  "compressed": "g.pie-min.js"
+  compressed: "g.pie-min.js"
   version: "0.4.1"
   dependencies:
     "g.raphael": "0.4.1"
@@ -53,14 +53,14 @@ raphael:
 "jquery":
   url: "http://code.jquery.com/jquery-{version}.js"
   description: "jquery core framework"
-  "compressed": "jquery-{version}.min.js"
-  "filename": "jquery.js"
+  compressed: "jquery-{version}.min.js"
+  file_name: "jquery.js"
   version: "1.6.2"
 
 "jquery-mobile":
   url: "http://code.jquery.com/mobile/{version}/jquery.mobile-{version}.js"
   description: "touch-optimized web framework for smartphones & tablets"
-  "filename": "jquery.mobile.js"
+  file_name: "jquery.mobile.js"
   version: "1.0a4"
   dependencies:
     "jquery": "1.5.1"
@@ -68,13 +68,13 @@ raphael:
 "processing.js":
   url: "http://processingjs.org/content/download/processing-js-{version}/processing-{version}.js"
   description: "a port of the Processing visualization language"
-  "filename": "processing.js"
+  file_name: "processing.js"
   version: "1.1.0"
 
 "d3":
   url: "https://github.com/mbostock/d3/raw/v{version}/d3.js"
   description: "A JavaScript visualization library for HTML and SVG."
-  "filename": "d3.js"
+  file_name: "d3.js"
   version: "1.17.0"
 
 "d3.behavior":
@@ -135,7 +135,7 @@ raphael:
   url: "https://github.com/documentcloud/backbone/raw/{version}/backbone.js"
   compressed: "backbone-min.js"
   description: "Backbone supplies structure to Javascript Apps by providing models, views, collections, and events"
-  version: "0.5.1"
+  version: "0.5.3"
 
 "zepto":
   url: "https://github.com/madrobby/zepto/raw/v{version}/src/zepto.js"

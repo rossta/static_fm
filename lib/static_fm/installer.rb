@@ -9,17 +9,21 @@ module StaticFM
       Installer.new(Asset.find(asset_name), destination, opts).download
     end
 
+    attr_accessor :compressed
+
     def initialize(asset, destination, opts = {})
       @asset = asset
-      @destination = destination
-      @opts = opts
+      @destination  = destination
+      @compressed   = opts[:compressed]
     end
 
     def download
-      request = Typhoeus::Request.new(@asset.url, :max_redirects => 1, :follow_location => true)
+      Logger.info "download\t#{@asset.display_name}"
+      request = Typhoeus::Request.new(url, :max_redirects => 1, :follow_location => true)
       request.on_complete do |resp|
         File.open(@destination, "w+") { |file|
           file.write(resp.body)
+          Logger.info "complete\t#{@asset.display_name} #{@destination}"
          }
       end
 
@@ -33,7 +37,11 @@ module StaticFM
     end
 
     def compressed?
-      !!@opts[:compressed]
+      !!@compressed
+    end
+
+    def file_name
+
     end
 
   end

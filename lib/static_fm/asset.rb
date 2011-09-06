@@ -73,6 +73,10 @@ module StaticFM
       @compressed && @url.gsub(basename, @compressed)
     end
 
+    def display_name
+      [name, version].compact.join(':')
+    end
+
     protected
 
     def parsed_uri

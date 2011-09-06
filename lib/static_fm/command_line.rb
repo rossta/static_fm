@@ -6,6 +6,7 @@ module StaticFM
   class CommandLine
 
     def initialize(args)
+      parser.parse!(args) # remove switches destructively
       @args = args
     end
 
@@ -43,7 +44,7 @@ module StaticFM
     end
 
     def parser
-      OptionParser.new do |opts|
+      @parser ||= OptionParser.new do |opts|
         opts.banner = "Usage: static [options] COMMAND"
 
         opts.separator ""
@@ -52,15 +53,6 @@ module StaticFM
         opts.on("-c", "--compressed", "Retrieve compressed version") do |host|
           options[:compressed] = true
         end
-        #
-        # opts.on("-N", "--namespace [NAMESPACE]", "Redis namespace") do |namespace|
-        #   Resque.redis.namespace = namespace
-        # end
-        #
-        # opts.on("-h", "--help", "Show this message") do
-        #   puts opts
-        #   exit
-        # end
 
         opts.separator ""
         opts.separator "Commands:"

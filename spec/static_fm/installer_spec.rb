@@ -36,6 +36,14 @@ describe StaticFM::Installer do
       @installer.download
     end
 
+    it "should use compressed url if option present" do
+      @asset.compressed = 'backbone-min.js'
+      @installer.compressed = true
+      Typhoeus::Request.should_receive(:new)
+        .with("http://www.example.com/backbone-min.js", { :follow_location => true, :max_redirects => 1 })
+      @installer.download
+    end
+
   end
 
   describe "url" do
@@ -45,7 +53,7 @@ describe StaticFM::Installer do
     end
 
     it "should use compressed url if option and compressed filename present" do
-      @asset.compressed = 'backbone-min.js'
+      @asset.compressed = "backbone-min.js"
       installer = StaticFM::Installer.new(@asset, "./spec/backbone.js", :compressed => true)
       installer.url.should == "http://www.example.com/backbone-min.js"
     end
