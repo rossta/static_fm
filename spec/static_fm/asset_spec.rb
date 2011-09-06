@@ -56,6 +56,17 @@ describe StaticFM::Asset do
     end
   end
 
+  describe "compressed_url" do
+    it "should replace basename with compressed" do
+      @asset.compressed = "backbone-min.js"
+      @asset.compressed_url.should == "http://www.example.com/path/to/backbone-min.js"
+    end
+
+    it "should return nil if no compressed basename" do
+      @asset.compressed_url.should be_nil
+    end
+  end
+
   describe "self.find" do
     # before(:each) do
     #   StaticFM::Asset.add({
@@ -64,14 +75,14 @@ describe StaticFM::Asset do
     #     :version => "0.1"
     #   }})
     # end
-    # 
+    #
     # it "should return asset from data in yml" do
     #   asset = StaticFM::Asset.find('backbone')
     #   asset.name.should == 'backbone'
     #   asset.url.should == "http://www.example.com/path/to/backbone.js"
     #   asset.version.should == "0.1"
     # end
-    # 
+    #
   end
 
 end

@@ -37,4 +37,17 @@ describe StaticFM::Installer do
     end
 
   end
+
+  describe "url" do
+    it "should use asset url by default" do
+      installer = StaticFM::Installer.new(@asset, "./spec/backbone.js")
+      installer.url.should == "http://www.example.com/backbone-src.js"
+    end
+
+    it "should use compressed url if option and compressed filename present" do
+      @asset.compressed = 'backbone-min.js'
+      installer = StaticFM::Installer.new(@asset, "./spec/backbone.js", :compressed => true)
+      installer.url.should == "http://www.example.com/backbone-min.js"
+    end
+  end
 end

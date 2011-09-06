@@ -9,14 +9,13 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ross Kaffenberger"]
-  s.date = %q{2011-09-05}
-  s.default_executable = %q{static}
+  s.date = %q{2011-09-06}
   s.description = %q{It's time consuming to look up the URLs to your favorite javascript libraries and css
 frameworks every time you start a new project or need to upgrade to a new version. Static
 FM provides recipes and tasks to speed up the process so you can start using the latest now.
 }
   s.email = %q{rosskaff@gmail.com}
-  s.executables = ["static"]
+  s.executables = ["static", "static"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.markdown"
@@ -25,12 +24,26 @@ FM provides recipes and tasks to speed up the process so you can start using the
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
+    "README.markdown",
     "Rakefile",
     "VERSION",
+    "bin/static",
+    "config/static.yml",
     "lib/static_fm.rb",
+    "lib/static_fm/asset.rb",
+    "lib/static_fm/command_line.rb",
+    "lib/static_fm/installer.rb",
+    "lib/static_fm/tasks.rb",
+    "lib/static_fm/tasks/static_fm.rake",
+    "lib/static_fm/updater.rb",
     "spec/spec_helper.rb",
-    "spec/static_fm_spec.rb"
+    "spec/static_fm/asset_spec.rb",
+    "spec/static_fm/installer_spec.rb",
+    "spec/static_fm/integration_spec.rb",
+    "spec/static_fm_spec.rb",
+    "static_fm.gemspec"
   ]
   s.homepage = %q{http://github.com/rossta/static_fm}
   s.licenses = ["MIT"]
@@ -42,6 +55,7 @@ FM provides recipes and tasks to speed up the process so you can start using the
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<typhoeus>, [">= 0"])
       s.add_development_dependency(%q<ruby-debug>, [">= 0"])
       s.add_development_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
@@ -53,6 +67,7 @@ FM provides recipes and tasks to speed up the process so you can start using the
       s.add_development_dependency(%q<rb-fsevent>, [">= 0"])
       s.add_development_dependency(%q<growl_notify>, [">= 0"])
     else
+      s.add_dependency(%q<typhoeus>, [">= 0"])
       s.add_dependency(%q<ruby-debug>, [">= 0"])
       s.add_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
@@ -65,6 +80,7 @@ FM provides recipes and tasks to speed up the process so you can start using the
       s.add_dependency(%q<growl_notify>, [">= 0"])
     end
   else
+    s.add_dependency(%q<typhoeus>, [">= 0"])
     s.add_dependency(%q<ruby-debug>, [">= 0"])
     s.add_dependency(%q<ruby-debug19>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])

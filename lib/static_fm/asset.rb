@@ -66,7 +66,11 @@ module StaticFM
     end
 
     def compressed_path
-      @compressed && path.gsub(basename, compressed)
+      @compressed && path.gsub(basename, @compressed)
+    end
+
+    def compressed_url
+      @compressed && @url.gsub(basename, @compressed)
     end
 
     protected

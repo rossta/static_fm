@@ -28,5 +28,13 @@ module StaticFM
       hydra.run
     end
 
+    def url
+      compressed? ? @asset.compressed_url : @asset.url
+    end
+
+    def compressed?
+      !!@opts[:compressed]
+    end
+
   end
 end
