@@ -42,15 +42,18 @@ module StaticFM
     end
 
 
-    attr_accessor :name, :url, :version, :compressed, :description, :file_name
+    attr_accessor :name, :url, :version, :compressed, :compressed_url, :description, :file_name
 
     def initialize(name, attributes = {})
       @name = name
       attributes.each_pair do |attribute, value|
         self.send("#{attribute}=", value)
       end
+    end
 
-      update_url_with_version!
+    def url_with_options(options = {})
+      calculated_url = options[:compress] ? compressed_url : url
+      update_url_with_version(calculated_url, @version)
     end
 
     def host
@@ -69,12 +72,8 @@ module StaticFM
       @file_name.nil? ? basename : @file_name
     end
 
-    def compressed_path
-      @compressed && path.gsub(basename, @compressed)
-    end
-
     def compressed_url
-      @compressed && @url.gsub(basename, @compressed)
+      @compressed_url || (@compressed && @url.gsub(basename, @compressed))
     end
 
     def display_name
@@ -84,11 +83,11 @@ module StaticFM
     protected
 
     def parsed_uri
-      @parsed_uri ||= URI.parse(@url)
+      @parsed_uri ||= URI.parse(update_url_with_version(@url, @version))
     end
 
-    def update_url_with_version!
-      @url.gsub!(/\{version\}/, @version) unless @version.nil?
+    def update_url_with_version(url, version = nil)
+      version.nil? ? url : url.gsub(/\{version\}/, version)
     end
   end
 

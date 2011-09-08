@@ -33,7 +33,8 @@ module StaticFM
     end
 
     def url
-      compressed? ? @asset.compressed_url : @asset.url
+      # @asset.url_with_options(options)
+      @asset.url_with_options({ :compress => compressed? })
     end
 
     def compressed?
