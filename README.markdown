@@ -2,11 +2,21 @@
 
 A static file manager: install and upgrade vendor assets (Javascript|CSS).
 
-##
+## About
 
 This project is still under heavy development
 
+## Development
+
+    rake                            # Runs non-network specs
+    rake network                    # Runs all specs, will hit network to test all downloads
+    ASSET=backbone rake network     # Runs all non-network specs + network check for backbone asset
+
 ## Contributing to static_fm
+
+To add a new library to static_fm, fork the project, add an entry to static.yml on a feature branch and submit a pull request.
+
+## Best practices
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it

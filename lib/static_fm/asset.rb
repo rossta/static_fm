@@ -42,7 +42,8 @@ module StaticFM
     end
 
 
-    attr_accessor :name, :url, :version, :compressed, :compressed_url, :description, :file_name
+    attr_accessor :name, :url, :version, :compressed, 
+      :compressed_url, :description, :file_name, :dependencies
 
     def initialize(name, attributes = {})
       @name = name
