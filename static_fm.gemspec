@@ -4,17 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{static_fm}
-  s.version = "0.0.2"
+  s.name = "static_fm"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ross Kaffenberger"]
-  s.date = %q{2011-09-09}
-  s.description = %q{It's time consuming to look up the URLs to your favorite javascript libraries and css
-frameworks every time you start a new project or need to upgrade to a new version. Static
-FM provides recipes and tasks to speed up the process so you can start using the latest now.
-}
-  s.email = %q{rosskaff@gmail.com}
+  s.date = "2011-09-14"
+  s.description = "It's time consuming to look up the URLs to your favorite javascript libraries and css\nframeworks every time you start a new project or need to upgrade to a new version. Static\nFM provides recipes and tasks to speed up the process so you can start using the latest now.\n"
+  s.email = "rosskaff@gmail.com"
   s.executables = ["static", "static"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -45,11 +42,11 @@ FM provides recipes and tasks to speed up the process so you can start using the
     "spec/static_fm_spec.rb",
     "static_fm.gemspec"
   ]
-  s.homepage = %q{http://github.com/rossta/static_fm}
+  s.homepage = "http://github.com/rossta/static_fm"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{A static file manager: install and upgrade vendor assets (Javascript|CSS)}
+  s.rubygems_version = "1.8.10"
+  s.summary = "A static file manager: install and upgrade vendor assets (Javascript|CSS)"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
