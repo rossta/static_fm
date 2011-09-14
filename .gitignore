@@ -49,3 +49,4 @@ pkg
 .rvmrc
 Guardfile
 spec/downloads
+vendor/bundle

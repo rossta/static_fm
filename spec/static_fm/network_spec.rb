@@ -16,7 +16,7 @@ describe "StaticFM integration" do
       assets = ENV['ASSET'].nil? ? config : {ENV['ASSET'] => config[ENV['ASSET']]}
       assets.each_pair do |asset_name, attributes|
         asset = StaticFM::Asset.find(asset_name)
-        destination = "./spec/downloads"
+        destination = "./spec/downloads/"
         installer = StaticFM::Installer.new(asset, destination)
         installer.download
 
