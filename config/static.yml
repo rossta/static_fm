@@ -176,4 +176,9 @@
   file_name: "jquery.cycle.js"
   dependencies:
     "jquery": "1.3.2"
-  
+
+"bootstrap-sass.css":
+  url: "https://raw.github.com/jlong/sass-twitter-bootstrap/master/bootstrap-{version}.css"
+  description: "Twitter Bootstrap framework converted to SASS"
+  version: "1.1.1"
+  file_name: "bootstrap-sass.css"
