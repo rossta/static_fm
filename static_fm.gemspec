@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "static_fm"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ross Kaffenberger"]
-  s.date = "2011-09-14"
+  s.date = "2011-10-08"
   s.description = "It's time consuming to look up the URLs to your favorite javascript libraries and css\nframeworks every time you start a new project or need to upgrade to a new version. Static\nFM provides recipes and tasks to speed up the process so you can start using the latest now.\n"
   s.email = "rosskaff@gmail.com"
   s.executables = ["static", "static"]
