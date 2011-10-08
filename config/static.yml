@@ -194,3 +194,9 @@
   description: "Javascript unit testing framework (CSS)"
   version: "1.1.0pre"
   file_name: "qunit.css"
+
+"jslitmus":
+  url: "https://raw.github.com/broofa/jslitmus/master/jslitmus.js"
+  description: "Simple, easy, javascript benchmark testing"
+  version: "0.0.1"
+  file_name: "jslitmus.js"
