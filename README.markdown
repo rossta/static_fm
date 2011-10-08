@@ -1,6 +1,24 @@
 # static_fm
 
-A static file manager: install and upgrade vendor assets (Javascript|CSS).
+A static file manager: install and upgrade vendor assets like javascript libraries and css frameworks.
+
+## Usage
+
+Install the gem.
+
+  gem install static_fm
+
+  # or with Bundler
+  gem 'static_fm', :group => :development
+
+
+Download your favorite library to your app.
+
+  $ static install jquery public/javascripts/
+
+## Why?
+
+StaticFM aims to be a useful tool for quickly adding common asset libraries and frameworks to your app without having to google for the right version or the URLs.
 
 ## About
 
