@@ -13,7 +13,7 @@ module StaticFM
 
     def initialize(asset, destination, opts = {})
       @asset = asset
-      @destination  = destination
+      @destination  = destination || '.'
       @compressed   = opts[:compressed]
     end
 

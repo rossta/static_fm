@@ -44,6 +44,17 @@ describe StaticFM::Installer do
       @installer.download
     end
 
+    it "should default to current directory if no destination specified" do
+      installer = StaticFM::Installer.new(@asset, nil)
+
+      File.should_receive(:open)
+        .with('./backbone-src.js', 'w+')
+        .and_yield(@file)
+
+      @file.should_receive(:write).with("source code")
+      installer.download
+    end
+
   end
 
   describe "url" do
